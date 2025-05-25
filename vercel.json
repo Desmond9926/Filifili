@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "rewrites": [
+    { "source": "/", "destination": "/frontend/index.html" },
+    { "source": "/upload", "destination": "/frontend/upload.html" },
+    { "source": "/assets/(.*)", "destination": "/frontend/assets/$1"},
+    { "source": "/favicon.ico", "destination": "/frontend/favicon.ico"}
+  ]
+}
