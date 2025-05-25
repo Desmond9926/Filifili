@@ -1,0 +1,16 @@
+const config = {
+    static_host : "https://static.luckylai.xyz",
+    title : "智游京脉",
+    description : "古都新韵,京彩无限",
+    isDemo: true,
+    homepage : {
+        images : [
+            "/img/cover_photo-1599571234909-29ed5d1321d6.jpg",
+            "/img/cover_lake-7731288_1280.jpg",
+            "/img/cover_jinshanling-1714198_1280.jpg",
+            "/img/cover_summer-palace-7774064_1280.jpg",
+            "/img/cover_roof-1028269_1280.jpg",
+            "/img/cover_beijing-7671354_1280.jpg",
+            "/img/cover_bridge-7650192_1280.jpg"
+        ]
+    },

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>哔哩风格视频平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 自定义配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bili-blue': '#00aeec',
+                        'nav-bg': '#ffffff',
+                        'card-bg': '#f5f5f5'
+                    },
+                    height: {
+                        '18': '4.5rem'  // 72px
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* 自定义补充样式 */
+        .video-card:hover .thumbnail img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- 导航栏 -->
+    <nav class="fixed top-0 w-full h-14 bg-white shadow-sm z-50">
+        <div class="flex items-center justify-between h-full max-w-7xl mx-auto px-4">
+            <a class="flex items-center">
+                <img src="./assets/images/logo.png" class="h-8 w-auto" alt="LOGO">
+            </a>
+
+            <div class="flex-1 mx-8 max-w-2xl">
+                <div class="relative">
+                    <input type="text" 
+                           class="w-full px-4 py-2 rounded-full bg-gray-100 focus:outline-none focus:ring-2 focus:ring-bili-blue"
+                           placeholder="搜索视频/UP主">
+                    <button class="absolute right-2 top-1/2 -translate-y-1/2 bg-bili-blue text-white px-4 py-1 rounded-full hover:bg-[#00a1d6] transition-colors">
+                        搜索
+                    </button>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <a href="/login" class="text-gray-600 hover:text-bili-blue transition-colors">登录</a>
+                <a href="/upload" class="bg-bili-blue text-white px-4 py-2 rounded-full hover:bg-[#00a1d6] transition-colors">
+                    投稿
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容区 -->
+    <main class="pt-14 min-h-screen">
+        <div class="max-w-7xl mx-auto px-4 py-6">
+            <!-- 轮播图和热榜容器 -->
+            <div class="flex gap-6">
+                <!-- 左侧轮播图 -->
+                <div class="w-3/5">
+                    <div class="carousel aspect-video w-full rounded-xl mb-8 overflow-hidden relative">
+                        <div class="carousel-inner w-full h-full flex transition-transform duration-500">
+                            <img src="https://static.luckylai.xyz/img/cover_roof-1028269_1280.jpg" 
+                                 alt="第一张轮播图" 
+                                 class="w-full h-full object-cover flex-shrink-0">
+                            <img src="https://static.luckylai.xyz/img/cover_beijing-7671354_1280.jpg" 
+                                 alt="第二张轮播图" 
+                                 class="w-full h-full object-cover flex-shrink-0">
+                        </div>
+                        <button class="carousel-prev absolute left-4 top-1/2 -translate-y-1/2 bg-white/50 p-2 rounded-full hover:bg-white/80 transition-colors">
+                            &lt;
+                        </button>
+                        <button class="carousel-next absolute right-4 top-1/2 -translate-y-1/2 bg-white/50 p-2 rounded-full hover:bg-white/80 transition-colors">
+                            &gt;
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 右侧实时热榜 -->
+                <div class="w-2/5">
+                    <div class="bg-white rounded-lg p-4 shadow-sm">
+                        <h3 class="text-lg font-medium mb-3">实时热榜</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-center text-sm hover:bg-gray-50 p-2 rounded cursor-pointer">
+                                <span class="w-5 text-center text-red-500 mr-2">1</span>
+                                <span class="line-clamp-1 flex-1">热门视频标题文字内容测试显示效果...</span>
+                                <span class="text-gray-400 ml-2">🔥12.3w</span>
+                            </li>
+                            <!-- 更多热榜条目... -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- 内容布局 -->
+            <div class="flex gap-6">
+                <!-- 左侧主内容 -->
+                <div class="flex-1">
+                    <h2 class="text-2xl font-bold mb-4">热门推荐</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                        <!-- 视频卡片 -->
+                        <div class="video-card bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                            <a href="#">
+                                <div class="thumbnail relative aspect-video bg-gray-200 overflow-hidden">
+                                    <img src="video-cover.jpg" class="w-full h-full object-cover transition-transform duration-300" alt="视频封面">
+                                    <span class="absolute bottom-2 right-2 bg-black/60 text-white text-sm px-2 rounded">
+                                        12:30
+                                    </span>
+                                </div>
+                                <div class="p-3">
+                                    <h3 class="font-medium line-clamp-2 mb-2">视频标题文字内容测试超出显示省略号...</h3>
+                                    <div class="flex items-center text-sm text-gray-500">
+                                        <img src="avatar.jpg" class="w-6 h-6 rounded-full mr-2" alt="UP主头像">
+                                        <span class="truncate">UP主名称</span>
+                                    </div>
+                                    <div class="flex text-sm text-gray-500 mt-1">
+                                        <span class="mr-3">12.3万播放</span>
+                                        <span>1.2万弹幕</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- 更多视频卡片... -->
+                    </div>
+                </div>
+
+                <!-- 右侧侧边栏 -->
+                <aside class="hidden lg:block w-80 flex-shrink-0">
+                    <div class="bg-white rounded-lg p-4 shadow-sm">
+                        <h3 class="text-lg font-medium mb-3">实时热榜</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-center text-sm hover:bg-gray-50 p-2 rounded cursor-pointer">
+                                <span class="w-5 text-center text-red-500 mr-2">1</span>
+                                <span class="line-clamp-1 flex-1">热门视频标题文字内容测试显示效果...</span>
+                                <span class="text-gray-400 ml-2">🔥12.3w</span>
+                            </li>
+                            <!-- 更多热榜条目... -->
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-white mt-12 py-8">
+        <div class="max-w-7xl mx-auto px-4 text-gray-600 text-sm">
+            <!-- 页脚内容 -->
+        </div>
+    </footer>
+</body>
+</html>
+<script>
+    // 确保DOM加载完成后再执行
+    document.addEventListener('DOMContentLoaded', function() {
+        const carousel = document.querySelector('.carousel');
+        if (!carousel) return;
+
+        const inner = carousel.querySelector('.carousel-inner');
+        const images = inner.querySelectorAll('img');
+        const prevBtn = carousel.querySelector('.carousel-prev');
+        const nextBtn = carousel.querySelector('.carousel-next');
+        
+        let currentIndex = 0;
+        const totalImages = images.length;
+        
+        function updateCarousel() {
+            const offset = -currentIndex * 100;
+            inner.style.transform = `translateX(${offset}%)`;
+        }
+        
+        function showNext() {
+            currentIndex = (currentIndex + 1) % totalImages;
+            updateCarousel();
+        }
+        
+        function showPrev() {
+            currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+            updateCarousel();
+        }
+        
+        // 自动播放
+        let autoPlay = setInterval(showNext, 3000);
+        
+        // 鼠标悬停时暂停自动播放
+        carousel.addEventListener('mouseenter', () => clearInterval(autoPlay));
+        carousel.addEventListener('mouseleave', () => {
+            autoPlay = setInterval(showNext, 3000);
+        });
+        
+        // 按钮事件
+        prevBtn.addEventListener('click', showPrev);
+        nextBtn.addEventListener('click', showNext);
+
+        // 初始化显示第一张图片
+        updateCarousel();
+    });
+</script>
