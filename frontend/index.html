@@ -62,67 +62,76 @@
     <main class="pt-14 min-h-screen">
         <div class="max-w-7xl mx-auto px-4 py-6">
             <!-- 轮播图和热榜容器 -->
-            <div class="flex gap-6 mb-16">
+            <div class="flex flex-col md:flex-row gap-4 md:gap-6 mb-8 md:mb-16">
                 <!-- 左侧轮播图 -->
-                <div class="w-3/5">
-                    <div class="carousel aspect-video w-full rounded-xl mb-8 overflow-hidden relative">
+                <div class="w-full md:3/5">
+                    <div class="carousel aspect-[3/2] md:aspect-video w-full rounded-lg md:rounded-xl mb-4 md:mb-8 overflow-hidden relative">
                         <div class="carousel-inner w-full h-full flex transition-transform duration-500">
-                            <img src="https://static.luckylai.xyz/img/cover_roof-1028269_1280.jpg" 
+                            <img src="https://pic.can525.xyz/1/b6.jpg" 
                                  alt="第一张轮播图" 
                                  class="w-full h-full object-cover flex-shrink-0">
-                            <img src="https://static.luckylai.xyz/img/cover_beijing-7671354_1280.jpg" 
+                            <img src="https://pic.can525.xyz/1/b2.jpg" 
                                  alt="第二张轮播图" 
                                  class="w-full h-full object-cover flex-shrink-0">
+                            <img src="https://pic.can525.xyz/1/b4.jpg" 
+                                 alt="第三张轮播图" 
+                                 class="w-full h-full object-cover flex-shrink-0">
+                            <img src="https://pic.can525.xyz/1/b3.jpg" 
+                                 alt="第四张轮播图" 
+                                 class="w-full h-full object-cover flex-shrink-0">
+                            <img src="https://pic.can525.xyz/1/b1.jpg" 
+                                 alt="第五张轮播图" 
+                                 class="w-full h-full object-cover flex-shrink-0">
                         </div>
-                        <button class="carousel-prev absolute left-4 top-1/2 -translate-y-1/2 bg-white/50 p-2 rounded-full hover:bg-white/80 transition-colors">
+                        <button class="carousel-prev absolute left-2 md:left-4 top-1/2 -translate-y-1/2 bg-white/50 p-1.5 md:p-2 rounded-full hover:bg-white/80 transition-colors text-sm md:text-base">
                             &lt;
                         </button>
-                        <button class="carousel-next absolute right-4 top-1/2 -translate-y-1/2 bg-white/50 p-2 rounded-full hover:bg-white/80 transition-colors">
+                        <button class="carousel-next absolute right-2 md:right-4 top-1/2 -translate-y-1/2 bg-white/50 p-1.5 md:p-2 rounded-full hover:bg-white/80 transition-colors text-sm md:text-base">
                             &gt;
                         </button>
                     </div>
                 </div>
 
                 <!-- 右侧实时热榜 -->
-                <div class="w-2/5">
-                    <div class="bg-white rounded-lg p-4 shadow-sm">
-                        <h3 class="text-lg font-medium mb-3">实时热榜</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-center text-sm hover:bg-gray-50 p-2 rounded cursor-pointer">
-                                <span class="w-5 text-center text-red-500 mr-2">1</span>
+                <div class="w-full md:w-2/5">
+                    <div class="bg-white rounded-lg p-3 md:p-4 shadow-sm">
+                        <h3 class="text-base md:text-lg font-medium mb-2 md:mb-3">实时热榜</h3>
+                        <ul class="space-y-2 md:space-y-3">
+                            <li class="flex items-center text-xs md:text-sm hover:bg-gray-50 p-1.5 md:p-2 rounded cursor-pointer">
+                                <span class="w-4 md:w-5 text-center text-red-500 mr-1 md:mr-2">1</span>
                                 <span class="line-clamp-1 flex-1">来中国，一定要注意的十点商务礼仪</span>
-                                <span class="text-gray-400 ml-2">🔥65.3w</span>
+                                <span class="text-gray-400 text-nowrap ml-1 md:ml-2">🔥65.3w</span>
                             </li>
                             <!-- 更多热榜条目... -->
-                            <li class="flex items-center text-sm hover:bg-gray-50 p-2 rounded cursor-pointer">
-                                <span class="w-5 text-center text-red-500 mr-2">2</span>
+                            <li class="flex items-center text-xs md:text-sm hover:bg-gray-50 p-1.5 md:p-2 rounded cursor-pointer">
+                                <span class="w-4 md:w-5 text-center text-red-500 mr-1 md:mr-2">2</span>
                                 <span class="line-clamp-1 flex-1">加纳部落的文化解析</span>
-                                <span class="text-gray-400 ml-2">🔥54.9w</span>
+                                <span class="text-gray-400 text-nowrap ml-1 md:ml-2">🔥54.9w</span>
                             </li>
-                            <li class="flex items-center text-sm hover:bg-gray-50 p-2 rounded cursor-pointer">
-                                <span class="w-5 text-center text-red-500 mr-2">3</span>
+                            <li class="flex items-center text-xs md:text-sm hover:bg-gray-50 p-1.5 md:p-2 rounded cursor-pointer">
+                                <span class="w-4 md:w-5 text-center text-red-500 mr-1 md:mr-2">3</span>
                                 <span class="line-clamp-1 flex-1">“一带一路”解读专栏</span>
-                                <span class="text-gray-400 ml-2">🔥52.1w</span>
+                                <span class="text-gray-400 text-nowrap ml-1 md:ml-2">🔥52.1w</span>
                             </li>
-                            <li class="flex items-center text-sm hover:bg-gray-50 p-2 rounded cursor-pointer">
-                                <span class="w-5 text-center text-red-500 mr-2">4</span>
+                            <li class="flex items-center text-xs md:text-sm hover:bg-gray-50 p-1.5 md:p-2 rounded cursor-pointer">
+                                <span class="w-4 md:w-5 text-center text-red-500 mr-1 md:mr-2">4</span>
                                 <span class="line-clamp-1 flex-1">非洲饮食文化专栏</span>
-                                <span class="text-gray-400 ml-2">🔥42.6w</span>
+                                <span class="text-gray-400 text-nowrap ml-1 md:ml-2">🔥42.6w</span>
                             </li>
-                            <li class="flex items-center text-sm hover:bg-gray-50 p-2 rounded cursor-pointer">
-                                <span class="w-5 text-center text-red-500 mr-2">5</span>
+                            <li class="flex items-center text-xs md:text-sm hover:bg-gray-50 p-1.5 md:p-2 rounded cursor-pointer">
+                                <span class="w-4 md:w-5 text-center text-red-500 mr-1 md:mr-2">5</span>
                                 <span class="line-clamp-1 flex-1">那些在非洲需要注意的宗教禁忌</span>
-                                <span class="text-gray-400 ml-2">🔥36.4w</span>
+                                <span class="text-gray-400 text-nowrap ml-1 md:ml-2">🔥36.4w</span>
                             </li>
-                            <li class="flex items-center text-sm hover:bg-gray-50 p-2 rounded cursor-pointer">
-                                <span class="w-5 text-center text-red-500 mr-2">6</span>
+                            <li class="flex items-center text-xs md:text-sm hover:bg-gray-50 p-1.5 md:p-2 rounded cursor-pointer">
+                                <span class="w-4 md:w-5 text-center text-red-500 mr-1 md:mr-2">6</span>
                                 <span class="line-clamp-1 flex-1">中国茶文化：跟中国人见面时，可以送哪些茶呢？</span>
-                                <span class="text-gray-400 ml-2">🔥33.2w</span>
+                                <span class="text-gray-400 text-nowrap ml-1 md:ml-2">🔥33.2w</span>
                             </li>
-                            <li class="flex items-center text-sm hover:bg-gray-50 p-2 rounded cursor-pointer">
-                                <span class="w-5 text-center text-red-500 mr-2">7</span>
+                            <li class="flex items-center text-xs md:text-sm hover:bg-gray-50 p-1.5 md:p-2 rounded cursor-pointer">
+                                <span class="w-4 md:w-5 text-center text-red-500 mr-1 md:mr-2">7</span>
                                 <span class="line-clamp-1 flex-1">非洲旅游去哪玩？</span>
-                                <span class="text-gray-400 ml-2">🔥24.1w</span>
+                                <span class="text-gray-400 text-nowrap ml-1 md:ml-2">🔥24.1w</span>
                             </li>
                         </ul>
                     </div>
@@ -616,7 +625,7 @@
                             <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/>
                             <path d="M12 18V6"/>
                         </svg>
-                        <a href="https://pic.can525.xyz/1/dashang.jpg" class="text-adobe-purple font-medium hover:underline hover:opacity-80 transition-opacity">
+                        <a href="https://pic.can525.xyz/1/dashang.jpg" target="_blank" class="text-adobe-purple font-medium hover:underline hover:opacity-80 transition-opacity">
                             打赏CAN制作团队
                         </a>
                     </div>
