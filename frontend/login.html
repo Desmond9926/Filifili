@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户登录 - 企业门户</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #7fb8ed 0%, #465bb7 100%);
+        }
+        .form-input:focus + .input-icon {
+            color: #667eea;
+        }
+        .password-toggle {
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen flex items-center justify-center p-4">
+    <div class="w-full max-w-md bg-white rounded-2xl shadow-xl">
+        <!-- 登录表单 -->
+        <form class="p-8" id="loginForm">
+            <!-- 标题 -->
+            <div class="text-center mb-10">
+                <h1 class="text-3xl font-bold text-gray-800 mb-2">欢迎回来</h1>
+                <p class="text-gray-500">请输入您的登录凭证</p>
+            </div>
+
+            <!-- 表单主体 -->
+            <div class="space-y-6">
+                <!-- 用户名输入 -->
+                <div class="relative">
+                    <input 
+                        type="text" 
+                        id="username"
+                        class="form-input w-full px-12 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        placeholder="用户名/邮箱"
+                        required
+                    >
+                    <svg class="input-icon absolute w-5 h-5 top-3.5 left-4 text-gray-400" 
+                         fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                              d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                    </svg>
+                </div>
+
+                <!-- 密码输入 -->
+                <div class="relative">
+                    <input 
+                        type="password" 
+                        id="password"
+                        class="form-input w-full px-12 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent pr-12"
+                        placeholder="密码"
+                        required
+                        minlength="6"
+                    >
+                    <svg class="input-icon absolute w-5 h-5 top-3.5 left-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-key-round-icon lucide-key-round"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"/><circle cx="16.5" cy="7.5" r=".5" fill="currentColor"/></svg>
+                    <button type="button" 
+                            class="password-toggle absolute text-gray-400 hover:text-blue-500"
+                            onclick="togglePasswordVisibility()">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- 辅助功能 -->
+                <div class="flex items-center justify-between text-sm">
+                    <label class="flex items-center text-gray-600">
+                        <input type="checkbox" class="rounded border-gray-300 text-blue-600 shadow-sm">
+                        <span class="ml-2">记住登录</span>
+                    </label>
+                    <a href="#" class="text-blue-600 hover:text-blue-800">忘记密码?</a>
+                </div>
+
+                <!-- 登录按钮 -->
+                <button type="submit" 
+                        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-colors">
+                    立即登录
+                </button>
+
+                <!-- 社交登录 -->
+                <div class="relative">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-gray-300"></div>
+                    </div>
+                    <div class="relative flex justify-center text-sm">
+                        <span class="px-2 bg-white text-gray-500">其他登录方式</span>
+                    </div>
+                </div>
+
+                <div class="flex justify-center space-x-4">
+                    <button type="button" class="p-2 rounded-full bg-gray-100 hover:bg-gray-200">
+                        <img src="https://th.bing.com/th/id/ODLS.b4d0b8e0-e35f-4d84-9212-80c496b67e94?w=32&amp;h=32&amp;qlt=90&amp;pcl=fffffa&amp;o=6&amp;pid=1.2" height="32" width="32" alt="全球 Web 图标" class="rms_img rounded-3xl" data-bm="28">
+                    </button>
+                    <button type="button" class="p-2 rounded-full bg-gray-100 hover:bg-gray-200">
+                        <img src="https://th.bing.com/th/id/ODLS.f280b3fd-f063-438d-bfe5-9393f9e976db?w=32&amp;h=32&amp;qlt=90&amp;pcl=fffffc&amp;o=6&amp;pid=1.2" height="32" width="32" alt="全球 Web 图标" class="rms_img ">
+                    </button>
+                    <button type="button" class="p-2 rounded-full bg-gray-100 hover:bg-gray-200">
+                        <img src="https://th.bing.com/th/id/ODLS.904061ea-1b1d-4a53-849f-322ebc0fd0b5?w=32&amp;h=32&amp;qlt=90&amp;pcl=fffffc&amp;o=6&amp;pid=1.2" height="32" width="32" alt="全球 Web 图标" class="rms_img">
+                    </button>
+                </div>
+            </div>
+
+            <!-- 注册链接 -->
+            <p class="mt-8 text-center text-gray-600">
+                没有账户? 
+                <a href="#" class="text-blue-600 hover:text-blue-800 font-semibold">立即注册</a>
+            </p>
+        </form>
+    </div>
+
+    <script>
+        // 密码可见性切换
+        function togglePasswordVisibility() {
+            const passwordField = document.getElementById('password');
+            const toggleBtn = document.querySelector('.password-toggle svg');
+            const type = passwordField.getAttribute('type');
+            
+            passwordField.setAttribute('type', type === 'password' ? 'text' : 'password');
+            toggleBtn.classList.toggle('text-blue-500');
+        }
+
+        // 表单验证
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (!username || !password) {
+                alert('请填写完整登录信息');
+                return;
+            }
+
+            // 这里添加实际登录逻辑
+            console.log('登录信息:', { username, password });
+            alert('登录成功（演示用）');
+        });
+    </script>
+</body>
+</html>
