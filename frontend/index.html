@@ -51,6 +51,19 @@
 
             <div class="flex items-center space-x-4">
                 <a href="/frontend/login.html" class="text-gray-600 hover:text-bili-blue transition-colors">登录</a>
+                <div class="relative group">
+                    <button class="flex items-center gap-1 text-gray-600 hover:text-bili-blue transition-colors">
+                        <span>语言</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m6 9 6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="absolute right-0 mt-2 w-32 bg-white rounded-md shadow-lg py-1 z-50 hidden group-hover:block">
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">中文</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">English</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Français</a>
+                    </div>
+                </div>
                 <a href="/frontend/upload.html" class="bg-bili-blue text-white px-4 py-2 rounded-full hover:bg-[#00a1d6] transition-colors">
                     投稿
                 </a>
