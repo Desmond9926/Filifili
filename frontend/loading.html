@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>加载动画</title>
+    <style>
+        /* 基础样式 */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f0f2f5;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        /* 加载容器 */
+        .loader-container {
+            text-align: center;
+        }
+
+        /* 加载文字 */
+        .loading-text {
+            color: #2c3e50;
+            margin-top: 20px;
+            font-size: 1.2em;
+            letter-spacing: 0.1em;
+        }
+
+        /* 旋转动画 */
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #e0e0e0;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        /* 弹跳点动画 */
+        .dot-flashing {
+            position: relative;
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+            background-color: #3498db;
+            animation: dot-flash 1s infinite linear;
+        }
+        .dot-flashing::before,
+        .dot-flashing::after {
+            content: '';
+            position: absolute;
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+            background-color: #3498db;
+        }
+        .dot-flashing::before {
+            left: -15px;
+            animation: dot-flash 1s infinite linear;
+            animation-delay: 0s;
+        }
+        .dot-flashing::after {
+            left: 15px;
+            animation: dot-flash 1s infinite linear;
+            animation-delay: 0.5s;
+        }
+
+        /* 进度条动画 */
+        .progress-bar {
+            width: 200px;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            left: -50%;
+            width: 40%;
+            height: 100%;
+            background: #3498db;
+            animation: progress 2s infinite ease-in-out;
+        }
+
+        /* 动画定义 */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes dot-flash {
+            0% { opacity: 0.2; transform: translateY(0); }
+            50% { opacity: 1; transform: translateY(-10px); }
+            100% { opacity: 0.2; transform: translateY(0); }
+        }
+
+        @keyframes progress {
+            0% { left: -40%; }
+            100% { left: 100%; }
+        }
+
+        /* 切换按钮样式 */
+        .switch-container {
+            position: fixed;
+            top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .style-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 20px;
+            background: #3498db;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .style-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="switch-container">
+        
+    </div>
+
+    <div class="loader-container">
+        <!-- 默认显示旋转动画 -->
+        <div class="spinner" id="spinner"></div>
+        
+        <!-- 弹跳点动画 -->
+        <div class="dot-flashing" id="dots" style="display: none;"></div>
+        
+        <!-- 进度条动画 -->
+        <div class="progress-bar" id="progress" style="display: none;"></div>
+        
+        <p class="loading-text">正在加载...</p>
+    </div>
+
+    <script>
+        function switchLoader(type) {
+            // 隐藏所有加载器
+            document.getElementById('spinner').style.display = 'none';
+            document.getElementById('dots').style.display = 'none';
+            document.getElementById('progress').style.display = 'none';
+            
+            // 显示选定的加载器
+            document.getElementById(type).style.display = 'block';
+            
+            // 如果是进度条需要重置动画
+            if(type === 'progress') {
+                const progressBar = document.getElementById('progress');
+                progressBar.style.animation = 'none';
+                progressBar.offsetHeight; // 触发重绘
+                progressBar.style.animation = null;
+            }
+        }
+    </script>
+</body>
+</html>
